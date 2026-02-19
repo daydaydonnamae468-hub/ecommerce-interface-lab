@@ -1,0 +1,133 @@
+/*Task 1: The Visual Foundation (Global Styles) */
+
+:root{
+    --primary-color:#2c3e50;
+    --accent-color:black;
+    --bg-ligth:#f4f4f4;
+    --text-main:#333333:
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg-ligth);
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1.6;
+}
+
+h1,h2,h3{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+h1{
+    color: var(--primary-color);   
+}
+
+/*Task 2: Interactive States and Transitions*/
+nav a{
+    text-decoration: var(--accent-color);
+    color: var(--primary-color);
+    padding: 8px;
+    transition: 0.3s;
+}
+
+nav a:hover{
+    background-color: var(--accent-color);
+    color: white;
+}
+
+nav a:active{
+    background-color: black;
+}
+
+nav a:focus{
+    outline: 2px solid var(--accent-color);
+}
+
+button{
+    background-color: var(--primary-color);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: var(--accent-color);
+}
+
+button:active{
+    background-color: black;
+}
+
+button:focus{
+    outline: 2px solid var(--accent-color);
+}
+
+/*Task 3: Product List Styling */
+article{
+    width: 250px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+}
+
+article:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+article:nth-child(even) {
+    background-color: #f9f9f9;
+}
+/*Task 4: Advanceda Selectors & Pseudo-elements*/
+.cart:empty{
+    background-color: #ffe6e6;
+    padding: 20px;
+    border: 2px dashed black;
+}
+
+.price::before{
+    content: "₱";
+    color: var(--accent-color);
+}
+
+input:required{
+    border: 2px solid black;
+}
+
+input:valid{
+    border: 2px solid green;
+}
+
+/*Task 5: Detailed Data Styling*/
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th{
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+td:first-child{
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+
+ul li::marker{
+    color: var(--accent-color);
+    font-size: 18px;
+}
+
+review::before{
+    content: ("”");
+    font-size: 24px;
+    color: var(--accent-color);
+}
