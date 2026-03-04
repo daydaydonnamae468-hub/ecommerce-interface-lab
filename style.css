@@ -1,4 +1,8 @@
+
 /*Task 1: The Visual Foundation (Global Styles) */
+* {
+    box-sizing: border-box;
+}
 
 :root{
     --primary-color:#2c3e50;
@@ -6,6 +10,7 @@
     --bg-ligth:#f4f4f4;
     --text-main:#333333:
 }
+
 
 body{
     font-family: Arial, Helvetica, sans-serif;
@@ -20,114 +25,180 @@ h1,h2,h3{
     font-weight: bold;
 }
 
+/* TASK 5: Fluid Media & Tables*/
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive Table Wrapper*/
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
 h1{
     color: var(--primary-color);   
 }
 
-/*Task 2: Interactive States and Transitions*/
-nav a{
-    text-decoration: var(--accent-color);
+/*Task 2:NAVIGATION & HEADER FLEXBOX*/
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    background-color: white;
+    padding: 1rem;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
     color: var(--primary-color);
     padding: 8px;
     transition: 0.3s;
 }
 
-nav a:hover{
+nav a:hover {
     background-color: var(--accent-color);
     color: white;
 }
 
-nav a:active{
-    background-color: black;
+/*  TASK 3: PRODUCT GRID*/
+
+.shop-layout {
+    display: flex;
+    flex-direction: column; 
 }
 
-nav a:focus{
-    outline: 2px solid var(--accent-color);
-}
-
-button{
-    background-color: var(--primary-color);
-    color: white;
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover{
-    background-color: var(--accent-color);
-}
-
-button:active{
-    background-color: black;
-}
-
-button:focus{
-    outline: 2px solid var(--accent-color);
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+    padding: 15px;
 }
 
 /*Task 3: Product List Styling */
 article{
-    width: 250px;
-    display: inline-block;
-    vertical-align: top;
-    margin: 10px;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: white;
 }
 
-article:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-article:nth-child(even) {
-    background-color: #f9f9f9;
-}
-/*Task 4: Advanceda Selectors & Pseudo-elements*/
-.cart:empty{
-    background-color: #ffe6e6;
-    padding: 20px;
-    border: 2px dashed black;
-}
-
-.price::before{
-    content: "₱";
+.price::before {
+    content: "₱"; /* From your original Lab 2 task */
     color: var(--accent-color);
 }
 
-input:required{
-    border: 2px solid black;
+
+/*Task 4: */
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 60vh;
 }
 
-input:valid{
-    border: 2px solid green;
+/* Cart Items */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
-/*Task 5: Detailed Data Styling*/
-table{
-    width: 100%;
-    border-collapse: collapse;
+
+/*TABLET STYLES*/
+
+@media (min-width: 481px) {
+    /* Task 3: 2-column Product Grid [cite: 21] */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-td, th{
-    border: 1px solid #ccc;
-    padding: 8px;
+/* DESKTOP STYLES */
+
+@media (min-width: 769px) {
+  
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    /* 4-column Grid */
+    .product-grid {
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+    }
+
+    /* Task 6: Sidebar */
+    .shop-layout {
+        display: grid;
+        grid-template-columns: 1fr 3fr; 
+        gap: 30px;
+    }
+
+    /* Task 4: Checkout Side-by-Side*/
+    .checkout-container {
+        display: flex;
+        gap: 20px;
+    }
 }
 
-td:first-child{
-    font-weight: bold;
-    background-color: #f2f2f2;
+/* TASK 7: @keyframes)*/
+
+/* Custom Fade-In for Product Cards*/
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-ul li::marker{
-    color: var(--accent-color);
-    font-size: 18px;
+article {
+    animation: slideUpFade 0.6s ease-out forwards;
 }
 
-review::before{
-    content: ("”");
-    font-size: 24px;
-    color: var(--accent-color);
+
+button:hover {
+    background-color: var(--accent-color);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
